@@ -27,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# use a minimal amount of RAM for each node to avoid overwhelming the host.
 	config.vm.provider "virtualbox" do |v|
-		v.memory = 512
+		v.memory = 1024
 		v.cpus = 1
 		v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 	end

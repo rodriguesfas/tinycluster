@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-apt -y update
-apt -y upgrade
+echo "==> Update pakage.."
+apt -y update && apt -y upgrade
 
-# install python3
-apt-get install python-dev python3-pip3 -q -y
-pip install pathos
+echo "==> Install python3.."
+apt-get install python3.7 python3.7-dev python3-pip -q -y
+
+echo "Define version.."
+ln -s python3 /usr/bin/python
 

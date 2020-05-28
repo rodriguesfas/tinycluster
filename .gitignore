@@ -1,4 +1,6 @@
-.vagrant
+.vagrant/*
+*.log
+*.save
+hosts
 id_ed25519
 id_ed25519.pub
-ubuntu-bionic-18.04-cloudimg-console.log

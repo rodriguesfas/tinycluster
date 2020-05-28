@@ -37,17 +37,20 @@ If you want more, change ```N_VMS``` in the ```Vagrantfile```.
 
 ##  Check Status Machine Vagrant
 
-    $ vagrant global-status
-    $ vagrant global-status --prune
+    user@machine:~/vagrant-cluster$ vagrant global-status
+    
+    or
+    
+    user@machine:~/vagrant-cluster$ vagrant global-status --prune
 
 
 ## Used Cluster
 
 The VMs will be named ```node1``` through ```node<n>```. To SSH to, say, ```node1```:
 
-    $ vagrant ssh node1
-    $ vagrant ssh node2
-    $ vagrant ssh node3
+    user@machine:~/vagrant-cluster$ vagrant ssh node1
+    user@machine:~/vagrant-cluster$ vagrant ssh node2
+    user@machine:~/vagrant-cluster$ vagrant ssh node3
 
 #### Check networks nodes.
 
@@ -66,7 +69,7 @@ The VMs will be named ```node1``` through ```node<n>```. To SSH to, say, ```node
 Add block code and save file.
 
     #!/usr/bin/env python
-    print "Hello!"
+    print("Hello!")
 
 #### Share the program to the other nodes.
 
