@@ -31,26 +31,33 @@ If you want more, change ```N_VMS``` in the ```Vagrantfile```.
 	```v.cpus = 1```
 
 
-## Create Cluster
+## Create the Cluster
 
-    $ vagrant up
+    user@machine:~/tinycluster$ vagrant up
 
 ##  Check Status Machine Vagrant
 
-    user@machine:~/vagrant-cluster$ vagrant global-status
+    user@machine:~/tinycluster$ vagrant global-status
     
     or
     
-    user@machine:~/vagrant-cluster$ vagrant global-status --prune
+    user@machine:~/tinycluster$ vagrant global-status --prune
+
+
+    id       name   provider   state   directory                           
+    -----------------------------------------------------------------------
+    ac284fc  node1  virtualbox running /home/your_user/tinycluster              
+    49a993a  node2  virtualbox running /home/your_user/tinycluster              
+    f1d87c0  node3  virtualbox running /home/your_user/tinycluster
 
 
 ## Used Cluster
 
 The VMs will be named ```node1``` through ```node<n>```. To SSH to, say, ```node1```:
 
-    user@machine:~/vagrant-cluster$ vagrant ssh node1
-    user@machine:~/vagrant-cluster$ vagrant ssh node2
-    user@machine:~/vagrant-cluster$ vagrant ssh node3
+    user@machine:~/tinycluster$ vagrant ssh node1
+    user@machine:~/tinycluster$ vagrant ssh node2
+    user@machine:~/tinycluster$ vagrant ssh node3
 
 #### Check networks nodes.
 
@@ -96,21 +103,3 @@ Execute the following command to remove the virtual machines created for the clu
 [William Domingues](#)
 
 [MPI Cluster Vagrantfile](https://github.com/mrahtz/mpi-vagrant)
-
-
-
-
-# Liberando portas no firewall iptables do Ubuntu
-
-    $ sudo iptables -A INPUT -p tcp --dport 60000 -j ACCEPT
-
-    $ telnet localhost 60000
-
-# 
-
-    $ wget https://www.parallelpython.com/downloads/pp/pp-1.6.6.tar.gz
-    
-    $ tar -vzxf pp-1.6.6.tar.gz
-
-
-    $ sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 60000 -j ACCEPT

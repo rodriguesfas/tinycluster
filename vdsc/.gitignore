@@ -1,0 +1,5 @@
+.vagrant/*
+*.txt
+*.log
+
+worker_token

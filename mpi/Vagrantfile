@@ -18,21 +18,22 @@ NETWORK_ID = "192.168.55"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "ubuntu/bionic64"
 
-	# Increase the default disk size of the bento image (64GB) to 96GB
-	# vagrant plugin install vagrant-disksize
-	# config.disksize.size = '200GB'
+	# Increase the default disk size of the bento image (64GB) to 96GB.
+	# command: vagrant plugin install vagrant-disksize
+	config.disksize.size = '64GB'
 
-	# vagrant plugin install vagrant-vbguest
-	# config.vbguest.auto_update = true
+	# command: vagrant plugin install vagrant-vbguest
+	config.vbguest.auto_update = true
 
 	# use a minimal amount of RAM for each node to avoid overwhelming the host.
 	config.vm.provider "virtualbox" do |v|
-		v.memory = 1024
+		v.memory = 3076
 		v.cpus = 1
 		v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 	end
 
 	hosts_file = []
+
 	# all nodes
 	1.upto(N_VMS) do |i|
 		config.vm.define vm_name = "node#{i}" do |config|
@@ -79,7 +80,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# Provision
 	config.vm.provision :shell, :path => "bootstrap.sh"
-
 	config.vm.provision "shell", inline: script
 
 end
