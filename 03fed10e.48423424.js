@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{102:function(o){o.exports=JSON.parse('{"allTagsPath":"tinycluster/blog/tags","slug":"facebook","name":"facebook","count":1,"permalink":"tinycluster/blog/tags/facebook"}')}}]);
